@@ -8,13 +8,14 @@ RUN autoconf && ./configure && make -j16
 RUN sed -i "s/CXX =/CXX ?=/" include/verilated.mk
 RUN make install
 
-# Install cocotb
-RUN pip3 install cocotb~=1.9
-
 # Install Digital
 WORKDIR /tools
 RUN wget https://github.com/hneemann/Digital/releases/download/v0.31/Digital.zip
 RUN unzip ./Digital.zip
 RUN rm Digital.zip
+RUN ln -s /tools/Digital/Digital.sh /usr/bin/digital
+
+# Install autograder dependencies
+RUN pip3 install cocotb~=1.9 gradescope-utils
 
 WORKDIR /src
