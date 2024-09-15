@@ -16,6 +16,8 @@ RUN rm Digital.zip
 RUN ln -s /tools/Digital/Digital.sh /usr/bin/digital
 
 # Install autograder dependencies
-RUN pip3 install cocotb~=1.9 gradescope-utils
+RUN pip3 install cocotb~=1.9 pytest
+ADD ./tools/pytest_utils /tools/pytest_utils
+RUN cd /tools/pytest_utils && pip3 install .
 
 WORKDIR /src
