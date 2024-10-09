@@ -2,8 +2,8 @@
 ARG TARGETARCH
 
 # Define the base image depending on the architecture
-FROM emsdk:3.1.61 AS amd64-base
-FROM emsdk:3.1.61-arm64 AS arm64-base
+FROM emscripten/emsdk:3.1.61 AS amd64-base
+FROM emscripten/emsdk:3.1.61-arm64 AS arm64-base
 
 # Use a conditional to select the right base image
 FROM ${TARGETARCH}-base
