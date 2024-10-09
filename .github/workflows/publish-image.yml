@@ -51,7 +51,7 @@ jobs:
           images: anishg24/cse140l
 
       - name: Build and push Docker image for AMD
-        id: push
+        id: push-amd
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -63,7 +63,7 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Build and push Docker image for ARM
-        id: push
+        id: push-arm
         uses: docker/build-push-action@v6
         with:
           context: .
