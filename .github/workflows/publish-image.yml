@@ -57,8 +57,7 @@ jobs:
           context: .
           file: ./Dockerfile
           platforms: linux/amd64
-          build-args: 
-            - TARGETARCH=amd64
+          build-args: TARGETARCH=amd64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
@@ -70,8 +69,7 @@ jobs:
           context: .
           file: ./Dockerfile
           platforms: linux/arm64
-          build-args: 
-            - TARGETARCH=arm64
+          build-args: TARGETARCH=arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}-arm64
           labels: ${{ steps.meta.outputs.labels }}-arm64
